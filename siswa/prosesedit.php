@@ -24,4 +24,3 @@ if (mysqli_affected_rows($conn) > 0) {
     document.location.href='index.php';
     </script>";
 }
-?>
