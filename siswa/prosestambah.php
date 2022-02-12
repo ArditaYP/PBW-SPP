@@ -23,4 +23,3 @@ $result = mysqli_query($conn,$query);
         document.location.href='index.php';
         </script>";
     }
-?>

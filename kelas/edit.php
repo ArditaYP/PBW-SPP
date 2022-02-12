@@ -5,14 +5,14 @@
     <title>EditData</title>
 </head>
 
-<body>s
+<body>
     <center>
         <?php
 
         include("../koneksi.php");
         $id = $_GET['id'];
 
-        $query = "SELECT * FROM siswa where nisn=$id";
+        $query = "SELECT * FROM kelas where nisn=$id";
         $result = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($result);
         ?>
