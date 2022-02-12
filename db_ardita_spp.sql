@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2022 at 06:49 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Waktu pembuatan: 12 Feb 2022 pada 07.04
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_spp`
+-- Database: `db_ardita_spp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas`
+-- Struktur dari tabel `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -34,7 +34,7 @@ CREATE TABLE `kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `kelas`
+-- Dumping data untuk tabel `kelas`
 --
 
 INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `kompentensi_keahlian`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `kompentensi_keahlian`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembayaran`
+-- Struktur dari tabel `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
@@ -60,7 +60,7 @@ CREATE TABLE `pembayaran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `petugas`
+-- Struktur dari tabel `petugas`
 --
 
 CREATE TABLE `petugas` (
@@ -74,7 +74,7 @@ CREATE TABLE `petugas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siswa`
+-- Struktur dari tabel `siswa`
 --
 
 CREATE TABLE `siswa` (
@@ -88,10 +88,17 @@ CREATE TABLE `siswa` (
   `id_spp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `siswa`
+--
+
+INSERT INTO `siswa` (`nisn`, `nis`, `password`, `nama`, `id_kelas`, `alamat`, `no_telp`, `id_spp`) VALUES
+('9999', '999', 'asd', 'asd', 1, 'asd', '123', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spp`
+-- Struktur dari tabel `spp`
 --
 
 CREATE TABLE `spp` (
@@ -105,13 +112,13 @@ CREATE TABLE `spp` (
 --
 
 --
--- Indexes for table `kelas`
+-- Indeks untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indexes for table `pembayaran`
+-- Indeks untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
@@ -120,13 +127,13 @@ ALTER TABLE `pembayaran`
   ADD KEY `id_petugas` (`id_petugas`);
 
 --
--- Indexes for table `petugas`
+-- Indeks untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
   ADD PRIMARY KEY (`id_petugas`);
 
 --
--- Indexes for table `siswa`
+-- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`nisn`),
@@ -134,29 +141,22 @@ ALTER TABLE `siswa`
   ADD KEY `id_kelas` (`id_kelas`);
 
 --
--- Indexes for table `spp`
+-- Indeks untuk tabel `spp`
 --
 ALTER TABLE `spp`
   ADD PRIMARY KEY (`id_spp`);
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `pembayaran`
+-- Ketidakleluasaan untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`nisn`) REFERENCES `siswa` (`nisn`),
   ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`id_spp`) REFERENCES `siswa` (`id_spp`),
   ADD CONSTRAINT `pembayaran_ibfk_3` FOREIGN KEY (`id_petugas`) REFERENCES `petugas` (`id_petugas`);
-
---
--- Constraints for table `siswa`
---
-ALTER TABLE `siswa`
-  ADD CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_spp`) REFERENCES `spp` (`id_spp`),
-  ADD CONSTRAINT `siswa_ibfk_2` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

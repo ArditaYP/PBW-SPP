@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <title>Login</title>
@@ -9,7 +10,7 @@
 <body>
   <div class="center">
     <h1>Login</h1>
-    <form action="login.php" method="post">
+    <form action="proses.php" method="post">
       <div class="txt_field">
         <input type="text" name="username" required>
         <span></span>
