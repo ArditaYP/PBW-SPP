@@ -5,8 +5,7 @@ $query = "SELECT * FROM kelas WHERE id_kelas = '$id'";
 $result = mysqli_query($conn, $query);
 $data = mysqli_fetch_assoc($result);
 require_once '../templates/header.php';
-?>
-<section class="home">
+?> <section class="home">
     <div class="text">Tambah Kelas</div>
     <div class="container">
         <form method="POST" action="prosesedit.php">
