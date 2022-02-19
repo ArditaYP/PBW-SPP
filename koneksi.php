@@ -4,7 +4,7 @@ $host = 'localhost'; // host
 $username = 'root'; // username
 $password = ''; // password
 // $database = 'db_spp'; // nama database
-$database = 'db_ardita_spp'; // nama database
+$database = 'db_spp_ardita'; // nama database
 $port = null; // port
 $socket = null; // socket
 

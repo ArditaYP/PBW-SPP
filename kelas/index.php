@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once '../koneksi.php';
+$query = "select * from kelas";
+$result = mysqli_query($conn, $query);
 
-<head>
-    <title>Isi Data</title>
-</head>
-
-<body>
-    <center>
-        <a href="tambah.php">Tambah Data</a><br><br>
+require_once '../templates/header.php';
+?>
+<section class="home">
+    <div class="text">Kelas</div>
+    <div class="container">
+        <a href="tambah.php">Tambah Data</a>
         <table border='1'>
             <thead>
                 <th>idkelas</th>
@@ -15,17 +16,8 @@
                 <th>Jurusan</th>
                 <th>Aksi</th>
             </thead>
-
-
             <tbody>
-                <?php
-                include("../koneksi.php");
-
-                $query = "select * from kelas";
-
-                $result = mysqli_query($conn, $query);
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
+                <?php while ($row = mysqli_fetch_array($result)) : ?>
                     <tr>
                         <td><?php echo $row['id_kelas'] ?></td>
                         <td><?php echo $row['nama_kelas'] ?></td>
@@ -36,13 +28,11 @@
                         </td>
                     </tr>
 
-                <?php
-                }
-                ?>
-
+                <?php endwhile; ?>
             </tbody>
         </table>
-    </center>
-</body>
-
-</html>
+    </div>
+</section>
+<?php
+require_once '../templates/footer.php';
+?>

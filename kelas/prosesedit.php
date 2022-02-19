@@ -5,7 +5,7 @@ $kelas = $_POST['kelas'];
 $jurusan = $_POST['jurusan'];
 
 include("../koneksi.php");
-$query = "UPDATE kelas SET id_kelas= '$idkelas', nama_kelas= '$kelas', kompentensi_keahlian='$jurusan'";
+$query = "UPDATE kelas SET nama_kelas= '$kelas', kompentensi_keahlian = '$jurusan' WHERE id_kelas = '$idkelas'";
 
 $result = mysqli_query($conn, $query);
 
