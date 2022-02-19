@@ -21,7 +21,7 @@
             <div class="text logo-text">
                 <!-- <span class="name">SMK TI BALI Global</span>
                 <span class="profession">SPP</span> -->
-                <img src="https://smkti-baliglobal.sch.id/gambar/icon.png" alt="logo">
+                <img src="https://smkti-baliglobal.sch.id/gambar/icon.png">
             </div>
             <i class='bx bx-chevron-right toggle'></i>
         </header>
