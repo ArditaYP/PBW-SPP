@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Isi Data</title>
-</head>
-
-<body>
-    <center>
+<?php
+require_once '../koneksi.php';
+require_once '../templates/header.php';
+?>
+<section class="home">
+    <div class="text">Kelas</div>
+    <div class="container">
         <a href="tambah.php">Tambah Data</a><br><br>
         <table border='1'>
             <thead>
@@ -22,7 +20,6 @@
 
             <tbody>
                 <?php
-                include("../koneksi.php");
 
                 $query = "select * from siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas";
 
@@ -49,7 +46,8 @@
 
             </tbody>
         </table>
-    </center>
-</body>
-
-</html>
+    </div>
+</section>
+<?php
+require_once '../templates/footer.php';
+?>

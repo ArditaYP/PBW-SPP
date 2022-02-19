@@ -10,3 +10,10 @@ function readdata($result)
 
     return $rows;
 }
+
+// var dump
+function dd($data)
+{
+    var_dump($data);
+    die;
+}
