@@ -2,7 +2,7 @@
 require_once '../koneksi.php';
 if (isset($_GET['id'])) {
     $idkelas = $_GET['id'];
-    $result = mysqli_query($conn, "DELETE FROM kelas WHERE nisn = $idkelas");
+    $result = mysqli_query($conn, "DELETE FROM kelas WHERE id_kelas = $idkelas");
 
     if (mysqli_affected_rows($conn) > 0) {
         echo "<script>
