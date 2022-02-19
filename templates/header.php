@@ -1,3 +1,6 @@
+<?php
+require_once '../koneksi.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,19 +45,23 @@
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="../kelas/index.php">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Kelas</span>
-                        </a>
-                    </li>
+                    <?php if (isset($_SESSION['leveluser']) && $_SESSION['leveluser'] == 'admin') : ?>
+                        <li class="nav-link">
+                            <a href="../kelas/index.php">
+                                <i class='bx bx-bar-chart-alt-2 icon'></i>
+                                <span class="text nav-text">Kelas</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="nav-link">
-                        <a href="../siswa/index.php">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Siswa</span>
-                        </a>
-                    </li>
+                    <?php if (isset($_SESSION['leveluser']) && $_SESSION['leveluser'] == 'admin') : ?>
+                        <li class="nav-link">
+                            <a href="../siswa/index.php">
+                                <i class='bx bx-bell icon'></i>
+                                <span class="text nav-text">Siswa</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
                     <li class="nav-link">
                         <a href="#">
