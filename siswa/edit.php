@@ -5,7 +5,7 @@
     <title>EditData</title>
 </head>
 
-<body>s
+<body>
     <center>
         <?php
 
