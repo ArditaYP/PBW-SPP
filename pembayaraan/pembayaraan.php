@@ -78,7 +78,7 @@ $read = readdata($result);
             <br>
             <label>tahun Yang Di Bayar</label>
             <br>
-            <input type="number" name="Tahun" placeholder="Bayar untuk tahun" required="" />
+            <input type="number" name="tahun" placeholder="Bayar untuk tahun" required="" />
             <br>
             <label>Angkatan</label>
             <br>

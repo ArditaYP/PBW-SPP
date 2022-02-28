@@ -19,6 +19,7 @@ if (isset($_POST['masuk'])) {
             // cek password
             if (mysqli_num_rows($rpetugas) > 0) {
                 $_SESSION['userlogin'] = $username;
+                $_SESSION['userloginID'] = mysqli_fetch_assoc($rpetugas)['id_petugas'];
                 $_SESSION['leveluser'] = $readPetugas[0]['level'];
                 return header("Location: ../dashboard/index.php");
             }

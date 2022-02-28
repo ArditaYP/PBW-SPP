@@ -1,17 +1,19 @@
 <?php
-session_start();
+include("../koneksi.php");
 
-$id_petugas = $_SESSION['id_ petugas'];
-$nisn = $_POST['nisn'];
-$tgl = $_POST['tgl'];
-$bulan = date ("F");
-$tahun = date("Y");
-$id_spp = $_POST['id spp'];
-$bayar = $_POST['nominal'];
+if (isset($_POST)) {
+    $id_petugas = $_SESSION['userloginID'];
+    $nisn = $_POST['nisn'];
+    $tgl = $_POST['tanggal'];
+    $bulan = $_POST['bulan'];
+    $tahun = $_POST['tahun'];
+    $bayar = $_POST['jumlah'];
+    $query = "INSERT INTO pembayaran VALUES ('', '$id_petugas', '$nisn', '$tgl', '$bulan', '$tahun', '1', '$bayar')";
 
-include ("../koneksi.php");
-$query = "INSERT INTO pembayaran (id_petugas, nisn, tgl_bayar, bulan_ dibayar,tahun_dibayar, id_spp, jumlah_bayar)
-    VALUES ('$id_petugas', '$nisn', '$tgl', '$bulan', '$tahun', '$id_spp', '$bayar')";
+    $result = mysqli_query($conn, $query)
+        or die(mysqli_error($conn));
 
-$result = mysqli_query($conn, $query)
-        or die (mysqli_error ($conn));
+    return header('Location: pembayaraan.php');
+} else {
+    return header('Location: pembayaraan.php');
+}
