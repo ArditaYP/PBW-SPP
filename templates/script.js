@@ -5,29 +5,20 @@ const body = document.querySelector('body'),
     modeSwitch = body.querySelector(".toggle-switch"),
     modeText = body.querySelector(".mode-text");
 
-toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-})
+if (toggle != null) {
+    toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+    })
 
-searchBtn.addEventListener("click", () => {
-    sidebar.classList.remove("close");
-})
+    searchBtn.addEventListener("click", () => {
+        sidebar.classList.remove("close");
+    })
+}
 
-modeSwitch.addEventListener("click", () => {
-    body.classList.toggle("dark");
-
-    if (body.classList.contains("dark")) {
-        modeText.innerText = "Light mode";
-    } else {
-        modeText.innerText = "Dark mode";
-
-    }
-});
 
 const angkatan = document.querySelector('#angkatan');
 const pembayaran = document.querySelector('#pembayaran');
-angkatan.addEventListener('change',(A) =>{
-    console.log(A.value)
+angkatan.addEventListener('change', (e) => {
+    console.log(e.value)
+    pembayaran.innerHTML = e.value;
 });
-
-

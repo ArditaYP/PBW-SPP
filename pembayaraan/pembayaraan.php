@@ -85,7 +85,7 @@ $read = readdata($result);
             <select name="spp" id="angkatan">
                 <option value="" disabled selected>-- Pilih Angkatan --</option>
                 <?php foreach ($read as $r) : ?>
-                    <option value="<?= $r['id_spp'] ?>"><?= $r['tahun'] ?></option>
+                    <option value="<?= $r['nominal'] ?>"><?= $r['tahun'] ?></option>
                 <?php endforeach; ?>
             </select><br>
             <label>Jumlah Bayar</label>
