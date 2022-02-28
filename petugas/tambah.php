@@ -43,33 +43,30 @@ require_once '../templates/header.php';
     }
 </style>
 <section class="home">
-<div class="container">
-    <h1 style="margin-bottom: -3px;">Input Petugas</h1>
-    <span>Silahkan menginputkan data dengan benar!</span>
-    <form action="prosestambah.php" method="POST" class="in-container">
-        <label>Id Petugas</label>
-        <br>
-        <input type="text" name="id_petugas" placeholder="masukan id..." required="" />
-        <br>
-        <label>Username</label>
-        <br>
-        <input type="text" name="username" placeholder="masukan username..." required="" />
-        <br>
-        <label>Password</label>
-        <br>
-        <input type="password" name="password" placeholder="masukan password..." required="" />
-        <br>
-        <label>Nama Petugas</label>
-        <br>
-        <input type="text" name="nama_petugas" placeholder="masukan nama petugas..." required="" />
-        <br>
-        <label>Level</label>
-        <br>
-        <input type="number" name="level" placeholder="masukan level petugas..." required="" />
-        <br>
-        <button class="tombol" type="submit" value="tambah"><b>SUBMIT</b></button>
-    </form>
-</div>
+    <div class="container">
+        <h1 style="margin-bottom: -3px;">Input Petugas</h1>
+        <span>Silahkan menginputkan data dengan benar!</span>
+        <form action="prosestambah.php" method="POST" class="in-container">
+            <br>
+            <label>Username</label>
+            <br>
+            <input type="text" name="username" placeholder="masukan username..." required="" />
+            <br>
+            <label>Password</label>
+            <br>
+            <input type="password" name="password" placeholder="masukan password..." required="" />
+            <br>
+            <label>Nama Petugas</label>
+            <br>
+            <input type="text" name="nama_petugas" placeholder="masukan nama petugas..." required="" />
+            <br>
+            <label>Level</label>
+            <br>
+            <input type="number" name="level" placeholder="masukan level petugas..." required="" />
+            <br>
+            <button class="tombol" type="submit" value="tambah"><b>SUBMIT</b></button>
+        </form>
+    </div>
 </section>
 <?php
 require_once '../templates/footer.php';

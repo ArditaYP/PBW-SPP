@@ -23,3 +23,11 @@ modeSwitch.addEventListener("click", () => {
 
     }
 });
+
+const angkatan = document.querySelector('#angkatan');
+const pembayaran = document.querySelector('#pembayaran');
+angkatan.addEventListener('change',(A) =>{
+    console.log(A.value)
+});
+
+
