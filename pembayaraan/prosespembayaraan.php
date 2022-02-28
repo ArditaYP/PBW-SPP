@@ -2,7 +2,7 @@
 session_start();
 
 $id_petugas = $_SESSION['id_ petugas'];
-$nisn = $_POST['nisn'l;
+$nisn = $_POST['nisn'];
 $tgl = $_POST['tgl'];
 $bulan = date ("F");
 $tahun = date("Y");
@@ -15,5 +15,3 @@ $query = "INSERT INTO pembayaran (id_petugas, nisn, tgl_bayar, bulan_ dibayar,ta
 
 $result = mysqli_query($conn, $query)
         or die (mysqli_error ($conn));
-
-    ?>

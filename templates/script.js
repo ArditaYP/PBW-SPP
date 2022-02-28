@@ -14,5 +14,6 @@ if (toggle != null) {
 const angkatan = document.querySelector('#angkatan');
 const pembayaran = document.querySelector('#pembayaran');
 angkatan.addEventListener('change', (e) => {
-    pembayaran.innerHTML = e.target.value;
+    const harga = e.target.value;
+    pembayaran.setAttribute('value', harga);
 });

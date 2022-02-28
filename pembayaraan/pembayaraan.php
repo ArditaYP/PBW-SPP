@@ -49,7 +49,7 @@ $read = readdata($result);
     <div class="container">
         <h1 style="margin-bottom: -3px;">Pembayaraan</h1>
         <span>Silahkan menginputkan data dengan benar!</span>
-        <form action="prosestambah.php" method="POST" class="in-container">
+        <form action="prosespembayaraan.php" method="POST" class="in-container">
             <label>nisn</label>
             <br>
             <input type="text" name="nisn" placeholder="masukan nisn..." required="" />
