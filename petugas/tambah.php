@@ -43,7 +43,7 @@ require_once '../templates/header.php';
     }
 </style>
 <section class="home">
-    <div class="container">
+    <div class="main-content">
         <h1 style="margin-bottom: -3px;">Input Petugas</h1>
         <span>Silahkan menginputkan data dengan benar!</span>
         <form action="prosestambah.php" method="POST" class="in-container">
@@ -62,7 +62,7 @@ require_once '../templates/header.php';
             <br>
             <label>Level</label>
             <br>
-            <input type="number" name="level" placeholder="masukan level petugas..." required="" />
+            <input type="text" name="level" placeholder="masukan level petugas..." required="" />
             <br>
             <button class="tombol" type="submit" value="tambah"><b>SUBMIT</b></button>
         </form>

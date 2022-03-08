@@ -34,10 +34,11 @@ require_once '../templates/header.php';
                         <td><?php echo $row['alamat'] ?></td>
                         <td><?php echo $row['no_telp'] ?></td>
                         <td><?php echo $row['id_spp'] ?></td>
-                        <td>
+                        <td style="display: flex; justify-content: center;">
+                            >
                             <a href="edit.php?id=<?= $row['nisn'] ?>">Edit</a> |
                             <a href="delete.php?id=<?= $row['nisn'] ?>">Hapus</a>
-                        </td>
+                            </style=>
                     </tr>
 
                 <?php

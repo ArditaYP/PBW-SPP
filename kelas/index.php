@@ -6,10 +6,10 @@ $result = mysqli_query($conn, $query);
 require_once '../templates/header.php';
 ?>
 <section class="home">
-    <div class="text">Kelas</div>
-    <div class="container">
+    <div class="main-content">
+        <div class="text">Kelas</div>
         <a href="tambah.php">Tambah Data</a>
-        <table border='1'>
+        <table>
             <thead>
                 <th>idkelas</th>
                 <th>Kelas</th>
@@ -22,8 +22,8 @@ require_once '../templates/header.php';
                         <td><?php echo $row['id_kelas'] ?></td>
                         <td><?php echo $row['nama_kelas'] ?></td>
                         <td><?php echo $row['kompentensi_keahlian'] ?></td>
-                        <td>
-                            <a href="edit.php?id=<?= $row['id_kelas'] ?>">Edit</a> |
+                        <td style="display: flex; justify-content: center;">
+                            <a href="edit.php?id=<?= $row['id_kelas'] ?>">Edit</a>
                             <a href="delete.php?id=<?= $row['id_kelas'] ?>">Hapus</a>
                         </td>
                     </tr>

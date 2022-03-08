@@ -63,40 +63,40 @@ $readd = readdata($resultSiswa);
     }
 </style>
 <section class="home">
-<div class="container">
-    <?php
-    $id_petugas = $_GET['id_petugas'];
+    <div class="main-content">
+        <?php
+        $id_petugas = $_GET['id_petugas'];
 
-    $query = "SELECT * FROM petugas WHERE id_petugas = $id_petugas";
-    $result = mysqli_query($conn, $query);
-    $data = mysqli_fetch_assoc($result);
-    ?>
-    <h1 style="margin-bottom: -3px;">Edit Petugas</h1>
-    <span>Silahkan menginputkan data ulang dengan benar!</span>
-    <form action="proses_edit.php" method="POST" class="in-container">
-        <label>Id Petugas</label>
-        <br>
-        <input type="text" name="id_petugas" value="<?php echo $data['id_petugas']; ?>" required="" />
-        <br>
-        <label>Username</label>
-        <br>
-        <input type="text" name="username" value="<?php echo $data['username']; ?>" required="" />
-        <br>
-        <label>Password</label>
-        <br>
-        <input type="password" name="password" value="<?php echo $data['password']; ?>" required="" />
-        <br>
-        <label>Nama Petugas</label>
-        <br>
-        <input type="text" name="nama_petugas" value="<?php echo $data['nama_petugas']; ?>" required="" />
-        <br>
-        <label>Level</label>
-        <br>
-        <input type="number" name="level" value="<?php echo $data['level']; ?>" required="" />
-        <br>
-        <button type="submit"><b>SUBMIT</b></button>
-    </form>
-</div>
+        $query = "SELECT * FROM petugas WHERE id_petugas = $id_petugas";
+        $result = mysqli_query($conn, $query);
+        $data = mysqli_fetch_assoc($result);
+        ?>
+        <h1 style="margin-bottom: -3px;">Edit Petugas</h1>
+        <span>Silahkan menginputkan data ulang dengan benar!</span>
+        <form action="proses_edit.php" method="POST" class="in-container">
+            <label>Id Petugas</label>
+            <br>
+            <input type="text" name="id_petugas" value="<?php echo $data['id_petugas']; ?>" required="" />
+            <br>
+            <label>Username</label>
+            <br>
+            <input type="text" name="username" value="<?php echo $data['username']; ?>" required="" />
+            <br>
+            <label>Password</label>
+            <br>
+            <input type="password" name="password" value="<?php echo $data['password']; ?>" required="" />
+            <br>
+            <label>Nama Petugas</label>
+            <br>
+            <input type="text" name="nama_petugas" value="<?php echo $data['nama_petugas']; ?>" required="" />
+            <br>
+            <label>Level</label>
+            <br>
+            <input type="number" name="level" value="<?php echo $data['level']; ?>" required="" />
+            <br>
+            <button type="submit"><b>SUBMIT</b></button>
+        </form>
+    </div>
 </section>
 
 <?php

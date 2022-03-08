@@ -1,110 +1,61 @@
 <?php
 require_once '../koneksi.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="../templates/style.css">
-
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
-    <title>SPP</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>MyApotek</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="../templates/css/style.css">
 </head>
 
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="text logo-text">
-                <!-- <span class="name">SMK TI BALI Global</span>
-                <span class="profession">SPP</span> -->
-                <img src="https://smkti-baliglobal.sch.id/gambar/icon.png">
-            </div>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
 
-        <div class="menu-bar">
-            <div class="menu">
-
-                <!-- <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li> -->
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="../dashboard/index.php">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <?php if (isset($_SESSION['leveluser']) && $_SESSION['leveluser'] == 'admin') : ?>
-                        <li class="nav-link">
-                            <a href="../kelas/index.php">
-                                <i class='bx bx-bar-chart-alt-2 icon'></i>
-                                <span class="text nav-text">Kelas</span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-                    <?php if (isset($_SESSION['leveluser']) && $_SESSION['leveluser'] == 'admin') : ?>
-                        <li class="nav-link">
-                            <a href="../siswa/index.php">
-                                <i class='bx bx-bell icon'></i>
-                                <span class="text nav-text">Siswa</span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Analytics</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">Likes</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Wallets</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="../login/logout.php">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-                <!-- <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
-            </div>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="las la-clinic-medical"></span> <span>MyApotek</span></h2>
         </div>
-    </nav>
+        <!--sidebar-->
+        <div class="sidebar-menu">
+            <ul>
+                <?php if ($_SESSION['leveluser'] == 'admin') : ?>
+                    <li>
+                        <a href="../pembayaraan/pembayaraan.php" class="active"><span class="las la-home"></span>
+                            <span>Pembayaraan</span></a>
+                    </li>
+                <?php endif; ?>
+                <li>
+                    <a href="../kelas/index.php"><span class="las la-stethoscope"></span>
+                        <span>Kelas</span></a>
+                </li>
+                <li>
+                    <a href="../siswa/index.php"><span class="las la-user"></span>
+                        <span>Siswa</span></a>
+                </li>
+                <li>
+                    <a href="../spp/index.php"><span class="las la-user-injured"></span>
+                        <span>SPP</span></a>
+                </li>
+                <li>
+                    <a href="../petugas/index.php"><span class="las la-book-medical"></span>
+                        <span>Petugas</span></a>
+                </li>
+                <hr>
+                <br>
+                <li>
+                    <a href="../Transaksi/index.php"><span class="las la-history"></span>
+                        <span>Transaksi</span></a>
+                </li>
+                <li>
+                    <a href="../Login/logout.php"><span class="las la-sign-out-alt"></span>
+                        <span>Logout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>

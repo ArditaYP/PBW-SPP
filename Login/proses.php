@@ -28,7 +28,8 @@ if (isset($_POST['masuk'])) {
         }
     }
 
-    $siswa = "SELECT * FROM siswa WHERE nisn = '$username'"; // query user
+    // check siswa
+    $siswa = "SELECT * FROM siswa WHERE nis = '$username'"; // query user
     $checksiswa = mysqli_query($conn, $siswa); // result user
 
     if ($checksiswa) {
