@@ -46,7 +46,7 @@ $read = readdata($result);
     }
 </style>
 <section class="home">
-    <div class="container">
+    <div class="main-content">
         <h1 style="margin-bottom: -3px;">Pembayaraan</h1>
         <span>Silahkan menginputkan data dengan benar!</span>
         <form action="prosespembayaraan.php" method="POST" class="in-container">

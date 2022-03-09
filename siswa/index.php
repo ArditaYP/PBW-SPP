@@ -3,10 +3,10 @@ require_once '../koneksi.php';
 require_once '../templates/header.php';
 ?>
 <section class="home">
-    <div class="text">Kelas</div>
-    <div class="container">
-        <a href="tambah.php">Tambah Data</a><br><br>
-        <table border='1'>
+    <div class="main-content">
+        <h1>Siswa</h1>
+        <a href="tambah.php">>Tambah Data Siswa</a><br><br>
+        <table>
             <thead>
                 <th>Nisn</th>
                 <th>NIS</th>

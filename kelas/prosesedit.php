@@ -11,12 +11,12 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_affected_rows($conn) > 0) {
     echo "<script>
-    alert('Kelas berhasil Diubah');
+    alert('Kelas berhasil diubah');
     document.location.href='index.php';
     </script>";
 } else {
     echo "<script>
-    alert('Kelas gagal Diubah');
+    alert('Kelas gagal diubah');
     document.location.href='index.php';
     </script>";
 }

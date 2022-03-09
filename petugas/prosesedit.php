@@ -9,8 +9,16 @@ $level = $_POST['level'];
 
 $query = "UPDATE petugas SET username= '$username', password= '$password', nama_petugas= '$nama_petugas', level= '$level' WHERE id_petugas = '$id_petugas'";
 
-$result = mysqli_query($koneksi, $query);
+$result = mysqli_query($conn, $query);
 
-mysqli_close($koneksi);
-
-?>
+if (mysqli_affected_rows($conn) > 0) {
+    echo "<script>
+    alert('Petugas berhasil diubah');
+    document.location.href='index.php';
+    </script>";
+} else {
+    echo "<script>
+    alert('Petugas gagal diubah');
+    document.location.href='index.php';
+    </script>";
+}

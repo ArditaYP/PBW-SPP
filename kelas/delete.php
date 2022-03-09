@@ -6,12 +6,12 @@ if (isset($_GET['id'])) {
 
     if (mysqli_affected_rows($conn) > 0) {
         echo "<script>
-        alert('Kelas berhasil Dihapus');
+        alert('Kelas berhasil dihapus');
         document.location.href='index.php';
         </script>";
     } else {
         echo "<script>
-        alert('Kelas gagal DiHapus');
+        alert('Kelas gagal dihapus');
         document.location.href='index.php';
         </script>";
     }

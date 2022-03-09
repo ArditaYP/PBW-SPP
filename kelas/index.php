@@ -7,8 +7,10 @@ require_once '../templates/header.php';
 ?>
 <section class="home">
     <div class="main-content">
-        <div class="text">Kelas</div>
-        <a href="tambah.php">Tambah Data</a>
+        <h1>
+            Kelas
+        </h1>
+        <a href="tambah.php">>Tambah Data Kelas</a>
         <table>
             <thead>
                 <th>idkelas</th>

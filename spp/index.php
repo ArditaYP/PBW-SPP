@@ -1,23 +1,21 @@
-<html>
+<?php
+require_once '../koneksi.php';
 
-<head>
-    <title>Isi Data</title>
-</head>
+require_once '../templates/header.php';
+?>
+<section class="home">
+    <div class="main-content">
+        <h1>SPP</h1>
+        <a href="tambah.php">>Tambah Data Spp</a><br><br>
+        <table>
 
-<body>
-    <center>
-        <a href="tambah.php">Tambah Data</a><br><br>
-        <table border='1'>
-            <thead>
-                <th>SPP</th>
-                <th>Tahun</th>
-                <th>Nominal</th>
-                <th>AKSI</th>
-            </thead>
+            <th>SPP</th>
+            <th>Tahun</th>
+            <th>Nominal</th>
+            <th>AKSI</th>
 
             <tbody>
                 <?php
-                include("../koneksi.php");
 
                 $query = "select * from spp ";
 
@@ -40,7 +38,7 @@
 
             </tbody>
         </table>
-    </center>
-</body>
+        </center>
+        </body>
 
-</html>
+        </html>

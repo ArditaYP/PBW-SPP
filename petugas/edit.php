@@ -73,7 +73,7 @@ $readd = readdata($resultSiswa);
         ?>
         <h1 style="margin-bottom: -3px;">Edit Petugas</h1>
         <span>Silahkan menginputkan data ulang dengan benar!</span>
-        <form action="proses_edit.php" method="POST" class="in-container">
+        <form action="prosesedit.php" method="POST" class="in-container">
             <label>Id Petugas</label>
             <br>
             <input type="text" name="id_petugas" value="<?php echo $data['id_petugas']; ?>" required="" />
@@ -92,7 +92,7 @@ $readd = readdata($resultSiswa);
             <br>
             <label>Level</label>
             <br>
-            <input type="number" name="level" value="<?php echo $data['level']; ?>" required="" />
+            <input type="text" name="level" value="<?php echo $data['level']; ?>" required="" />
             <br>
             <button type="submit"><b>SUBMIT</b></button>
         </form>

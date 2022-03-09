@@ -15,12 +15,12 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_affected_rows($conn) > 0) {
     echo "<script>
-    alert('Siswa berhasil Diubah');
+    alert('Siswa berhasil diubah');
     document.location.href='index.php';
     </script>";
 } else {
     echo "<script>
-    alert('Siswa gagal Diubah');
+    alert('Siswa gagal diubah');
     document.location.href='index.php';
     </script>";
 }
