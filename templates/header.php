@@ -24,34 +24,35 @@ require_once '../koneksi.php';
         <!--sidebar-->
         <div class="sidebar-menu">
             <ul>
-                <?php if ($_SESSION['leveluser'] == 'admin') : ?>
+                <?php if (isset($_SESSION['leveluser'])) : ?>
                     <li>
                         <a href="../pembayaraan/pembayaraan.php" class="active"><span class="las la-home"></span>
                             <span>Pembayaraan</span></a>
                     </li>
                 <?php endif; ?>
 
-                <?php if ($_SESSION['leveluser'] == 'admin') : ?>
+                <?php if (isset($_SESSION['leveluser'])) : ?>
+                    <?php if ($_SESSION['leveluser'] == 'admin') : ?>
 
-                    <li>
-                        <a href="../kelas/index.php"><span class="las la-stethoscope"></span>
-                            <span>Kelas</span></a>
-                    </li>
-                    <li>
-                        <a href="../siswa/index.php"><span class="las la-user"></span>
-                            <span>Siswa</span></a>
-                    </li>
-                    <li>
-                        <a href="../spp/index.php"><span class="las la-user-injured"></span>
-                            <span>SPP</span></a>
-                    </li>
-                    <li>
-                        <a href="../petugas/index.php"><span class="las la-book-medical"></span>
-                            <span>Petugas</span></a>
-                    </li>
+                        <li>
+                            <a href="../kelas/index.php"><span class="las la-stethoscope"></span>
+                                <span>Kelas</span></a>
+                        </li>
+                        <li>
+                            <a href="../siswa/index.php"><span class="las la-user"></span>
+                                <span>Siswa</span></a>
+                        </li>
+                        <li>
+                            <a href="../spp/index.php"><span class="las la-user-injured"></span>
+                                <span>SPP</span></a>
+                        </li>
+                        <li>
+                            <a href="../petugas/index.php"><span class="las la-book-medical"></span>
+                                <span>Petugas</span></a>
+                        </li>
+                        <hr style="margin: 1rem 0;">
+                    <?php endif; ?>
                 <?php endif; ?>
-                <hr>
-                <br>
                 <li>
                     <a href="../History/index.php"><span class="las la-history"></span>
                         <span>History</span></a>
