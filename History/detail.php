@@ -44,7 +44,19 @@ require_once '../koneksi.php';
     }
 </style>
 <div style="width: 100vw;">
-    <h1>Cetak Pembayaran Ini</h1>
+<table>
+    <tr>
+        <td>
+    <img src="https://elearning.smkti-baliglobal.sch.id/img/logo-ti2.png" alt="" width="200px" hight="200px">
+        </td>
+        <td>
+    <h1>SMK TI BALI GLOBAL DENPASAR</h1>
+    </td>
+    </tr>
+    <tr>
+        <td>testttt</td>
+    </tr>
+</table>
     <table class="cetak">
         <tr>
             <td style="padding: 10px;">Id Pembayaran</td>
@@ -64,6 +76,7 @@ require_once '../koneksi.php';
             // jalankan query untuk menampilkan semua data diurutkan berdasarkan id_pembayaran
             $query = "SELECT * FROM pembayaran JOIN petugas ON pembayaran.id_petugas = petugas.id_petugas WHERE nis = '$nis'";
             $result = mysqli_query($conn, $query);
+            $i = 1;
             //mengecek apakah ada error ketika menjalankan query
             if (!$result) {
                 die("Query Error: " . mysqli_errno($conn) .
@@ -77,7 +90,7 @@ require_once '../koneksi.php';
             ?>
 
                 <tr>
-                    <td><?php echo $row['id_pembayaran']; ?></td>
+                    <td><?php echo $i++ ?></td>
                     <td><?php echo $row['nama_petugas'] ?></td>
                     <td><?php echo $row['nis'] ?></td>
                     <td><?php echo $row['tgl_bayar'] ?></td>
@@ -94,7 +107,7 @@ require_once '../koneksi.php';
         </tbody>
     </table>
 </div>
-<button onclick="window.print()">Cetak</button>
+<script>window.print();</script>
 
 <?php
 require_once '../templates/footer.php';

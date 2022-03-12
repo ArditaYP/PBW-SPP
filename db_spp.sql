@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2022 pada 07.04
--- Versi server: 10.4.20-MariaDB
--- Versi PHP: 8.0.8
+-- Generation Time: Mar 12, 2022 at 09:51 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_ardita_spp`
+-- Database: `db_spp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kelas`
+-- Table structure for table `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -34,22 +34,26 @@ CREATE TABLE `kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `kelas`
+-- Dumping data for table `kelas`
 --
 
 INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `kompentensi_keahlian`) VALUES
-(1, 'XIIRPL2', 'Rekayasa Perangkat Lunak');
+(1, 'XIIRPL2', 'Rekayasa Perangkat Lunak'),
+(3, 'XIIRPL3', 'Rekayasa Perangkat Lunak'),
+(4, 'XIIRPL4', 'Rekayasa Perangkat Lunak'),
+(5, 'XIIMM3', 'Multimedia'),
+(6, 'XIIMM4', 'Multimedia');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran`
+-- Table structure for table `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
   `id_pembayaran` int(11) NOT NULL,
   `id_petugas` int(11) NOT NULL,
-  `nisn` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nis` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tgl_bayar` date NOT NULL,
   `bulan_dibayar` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tahun_dibayar` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -57,24 +61,46 @@ CREATE TABLE `pembayaran` (
   `jumlah_bayar` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_petugas`, `nis`, `tgl_bayar`, `bulan_dibayar`, `tahun_dibayar`, `id_spp`, `jumlah_bayar`) VALUES
+(1, 1, '4869', '2022-03-10', 'maret', '2017', 1, 600000),
+(2, 1, '4869', '2022-03-11', 'april', '2022', 1, 700000),
+(3, 1, '4867', '2022-03-12', 'maret', '2022', 1, 600000),
+(4, 1, '4867', '2022-03-12', 'mei', '2022', 1, 500000);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `petugas`
+-- Table structure for table `petugas`
 --
 
 CREATE TABLE `petugas` (
   `id_petugas` int(11) NOT NULL,
-  `username` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_petugas` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `level` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `username` varchar(25) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `nama_petugas` varchar(35) NOT NULL,
+  `level` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `petugas`
+--
+
+INSERT INTO `petugas` (`id_petugas`, `username`, `password`, `nama_petugas`, `level`) VALUES
+(1, 'admin', 'admin', 'Admin', 'admin'),
+(2, 'Ardita', '0406', 'ArditaYasa', 'admin'),
+(3, 'siwa', 'siwa', 'Siwananda', 'Admin'),
+(4, 'Dhiwa', 'dhiwa', 'Dhiwa', 'admin'),
+(5, 'Petugas', '123', 'Petugas', 'admin'),
+(6, 'Petugas', '12345', 'Petugas', 'admin');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siswa`
+-- Table structure for table `siswa`
 --
 
 CREATE TABLE `siswa` (
@@ -89,16 +115,16 @@ CREATE TABLE `siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `siswa`
+-- Dumping data for table `siswa`
 --
 
 INSERT INTO `siswa` (`nisn`, `nis`, `password`, `nama`, `id_kelas`, `alamat`, `no_telp`, `id_spp`) VALUES
-('9999', '999', 'asd', 'asd', 1, 'asd', '123', 1);
+('9', '4869', '123', 'asd', 1, 'asd', '123', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `spp`
+-- Table structure for table `spp`
 --
 
 CREATE TABLE `spp` (
@@ -108,32 +134,43 @@ CREATE TABLE `spp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `spp`
+--
+
+INSERT INTO `spp` (`id_spp`, `tahun`, `nominal`) VALUES
+(1, 2021, 600000),
+(2, 2022, 700000),
+(3, 2019, 600000),
+(4, 2018, 500000),
+(5, 2017, 400000);
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `kelas`
+-- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indeks untuk tabel `pembayaran`
+-- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
-  ADD KEY `nisn` (`nisn`),
+  ADD KEY `nisn` (`nis`),
   ADD KEY `id_spp` (`id_spp`),
   ADD KEY `id_petugas` (`id_petugas`);
 
 --
--- Indeks untuk tabel `petugas`
+-- Indexes for table `petugas`
 --
 ALTER TABLE `petugas`
   ADD PRIMARY KEY (`id_petugas`);
 
 --
--- Indeks untuk tabel `siswa`
+-- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`nisn`),
@@ -141,22 +178,38 @@ ALTER TABLE `siswa`
   ADD KEY `id_kelas` (`id_kelas`);
 
 --
--- Indeks untuk tabel `spp`
+-- Indexes for table `spp`
 --
 ALTER TABLE `spp`
   ADD PRIMARY KEY (`id_spp`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `pembayaran`
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`nisn`) REFERENCES `siswa` (`nisn`),
-  ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`id_spp`) REFERENCES `siswa` (`id_spp`),
-  ADD CONSTRAINT `pembayaran_ibfk_3` FOREIGN KEY (`id_petugas`) REFERENCES `petugas` (`id_petugas`);
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `petugas`
+--
+ALTER TABLE `petugas`
+  MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `spp`
+--
+ALTER TABLE `spp`
+  MODIFY `id_spp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

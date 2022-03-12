@@ -91,7 +91,7 @@ require_once '../templates/header.php';
                         <td>
                             <a class="anchor" href="detail.php?nis=<?= $row['nis']; ?>">Detail </a>
                             <span>|</span>
-                            <a class="anchor" href="delete.php?id_pembayaran=<?php echo $row['id_pembayaran']; ?>" onclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                            <a class="anchor" href="delete.php?id_pembayaran=<?php echo $row['id_pembayaran']; ?>" onclick="return confirm ('apakah anda yakin?')">Delete</a>
                         <td>
                         <?php endif; ?>
                     <?php endif; ?>
