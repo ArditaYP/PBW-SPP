@@ -9,7 +9,7 @@ require_once '../koneksi.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>MyApotek</title>
+    <title>Smk Ti Bali Global</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="../templates/css/style.css">
 </head>
@@ -19,7 +19,7 @@ require_once '../koneksi.php';
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="las la-clinic-medical"></span> <span>MyApotek</span></h2>
+            <h2><span class="las la-clinic-medical"></span> <span>Smk Ti Bali Global</span></h2>
         </div>
         <!--sidebar-->
         <div class="sidebar-menu">

@@ -9,10 +9,7 @@ require_once '../templates/header.php';
         display: inline-block;
     }
 
-    td {
-        color: black;
-        text-align: center;
-    }
+   
 
     .anchor:after {
         display: block;
@@ -44,18 +41,21 @@ require_once '../templates/header.php';
         <tr>
             <th>Id Pembayaran </th>
             <th>Petugas</th>
-            <th>Nisn</th>
+            <th>Nis</th>
             <th>Tanggal Bayar</th>
             <th>Bulan Bayar</th>
             <th>Tahun Bayar</th>
             <th>Id SPP</th>
             <th>Jumlah Bayar</th>
+            <?php if (isset($_SESSION['leveluser'])) : ?>
+                    <?php if ($_SESSION['leveluser'] == 'admin') : ?>
             <th>Aksi</th>
+            <?php endif; ?>
+                <?php endif; ?>
         </tr>
 
         <tbody>
             <?php
-            // jalankan query untuk menampilkan semua data diurutkan berdasarkan id_pembayaran
             $query = "SELECT * FROM pembayaran JOIN petugas ON pembayaran.id_petugas = petugas.id_petugas";
             $result = mysqli_query($conn, $query);
             $i = 1;
@@ -74,16 +74,22 @@ require_once '../templates/header.php';
                 <tr>
                     <td><?php echo $i++ ?></td>
                     <td><?php echo $row['nama_petugas'] ?></td>
-                    <td><?php echo $row['nisn'] ?></td>
+                    <td><?php echo $row['nis'] ?></td>
                     <td><?php echo $row['tgl_bayar'] ?></td>
                     <td><?php echo $row['bulan_dibayar'] ?></td>
                     <td><?php echo $row['tahun_dibayar'] ?></td>
                     <td><?php echo $row['id_spp'] ?></td>
-                    <td><?php echo $row['jumlah_bayar'] ?></td>
+                    <td style="text-align:center;"><?php echo $row['jumlah_bayar'] ?></td> 
+
+                    <?php if (isset($_SESSION['leveluser'])) : ?>
+                    <?php if ($_SESSION['leveluser'] == 'admin') : ?>
                     <td style="display: flex; justify-content: center;">
-                    <a class="anchor" href="detail.php?nisn=<?= $row['nisn']; ?>">Detail </a>
+                    <a class="anchor" href="detail.php?nis=<?= $row['nis']; ?>">Detail </a>
                         <span>|</span>
                     <a class="anchor" href="delete.php?id_pembayaran=<?php echo $row['id_pembayaran']; ?>" onclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
                 </tr>
 
             <?php
