@@ -3,6 +3,11 @@ require_once '../koneksi.php';
 ?>
 
 <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
     .anchor {
         text-decoration: none;
         color: #001e3c;
@@ -42,21 +47,30 @@ require_once '../koneksi.php';
         border-radius: 5px;
         background-color: #001e3c;
     }
+
+    .headerNIBOZ {
+        border: 1px solid red;
+        display: flex;
+        align-items: center;
+        padding: 1rem 18rem;
+    }
+
+    .smk {
+        display: flex;
+        flex-direction: column;
+    }
 </style>
 <div style="width: 100vw;">
-<table>
-    <tr>
-        <td>
-    <img src="https://elearning.smkti-baliglobal.sch.id/img/logo-ti2.png" alt="" width="200px" hight="200px">
-        </td>
-        <td>
-    <h1>SMK TI BALI GLOBAL DENPASAR</h1>
-    </td>
-    </tr>
-    <tr>
-        <td>testttt</td>
-    </tr>
-</table>
+    <div class="headerNIBOZ">
+        <div class="image">
+            <img src="https://elearning.smkti-baliglobal.sch.id/img/logo-ti2.png" alt="" width="200">
+        </div>
+        <div class="smk">
+            <h1>SMK TI BALI GLOBAL DENPASAR</h1>
+            <p>Jalan Ketupat</p>
+            <p>Telp: 696969 | Web: www.zaaportals.com | Email: admin@zaaportals.com</p>
+        </div>
+    </div>
     <table class="cetak">
         <tr>
             <td style="padding: 10px;">Id Pembayaran</td>
@@ -107,7 +121,9 @@ require_once '../koneksi.php';
         </tbody>
     </table>
 </div>
-<script>window.print();</script>
+<script>
+    // window.print();
+</script>
 
 <?php
 require_once '../templates/footer.php';
