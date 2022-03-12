@@ -9,8 +9,6 @@ require_once '../templates/header.php';
         display: inline-block;
     }
 
-   
-
     .anchor:after {
         display: block;
         content: '';
@@ -48,55 +46,60 @@ require_once '../templates/header.php';
             <th>Id SPP</th>
             <th>Jumlah Bayar</th>
             <?php if (isset($_SESSION['leveluser'])) : ?>
-                    <?php if ($_SESSION['leveluser'] == 'admin') : ?>
-            <th>Aksi</th>
-            <?php endif; ?>
+                <?php if ($_SESSION['leveluser'] == 'admin') : ?>
+                    <th>Aksi</th>
                 <?php endif; ?>
+            <?php endif; ?>
         </tr>
 
-        <tbody>
-            <?php
-            $query = "SELECT * FROM pembayaran JOIN petugas ON pembayaran.id_petugas = petugas.id_petugas";
-            $result = mysqli_query($conn, $query);
-            $i = 1;
-            //mengecek apakah ada error ketika menjalankan query
-            if (!$result) {
-                die("Query Error: " . mysqli_errno($conn) .
-                    " - " . mysqli_error($conn));
-            }
-
-            //buat perulangan untuk element tabel dari data pembayaran
-            //hasil query akan disimpan dalam variabel $data dalam bentuk array
-            //kemudian dicetak dengan perulangan while
-            while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-
-                <tr>
-                    <td><?php echo $i++ ?></td>
-                    <td><?php echo $row['nama_petugas'] ?></td>
-                    <td><?php echo $row['nis'] ?></td>
-                    <td><?php echo $row['tgl_bayar'] ?></td>
-                    <td><?php echo $row['bulan_dibayar'] ?></td>
-                    <td><?php echo $row['tahun_dibayar'] ?></td>
-                    <td><?php echo $row['id_spp'] ?></td>
-                    <td style="text-align:center;"><?php echo $row['jumlah_bayar'] ?></td> 
-
-                    <?php if (isset($_SESSION['leveluser'])) : ?>
+        <?php
+        $query = "SELECT * FROM pembayaran JOIN petugas ON pembayaran.id_petugas = petugas.id_petugas";
+        $result = mysqli_query($conn, $query);
+        $i = 1;
+        //mengecek apakah ada error ketika menjalankan query
+        if (!$result) {
+            die("Query Error: " . mysqli_errno($conn) .
+                " - " . mysqli_error($conn));
+        }
+        ?>
+        <?php foreach ($result as $row) : ?>
+            <tr>
+                <td><?= $i++ ?></td>
+                <td>
+                    <?= $row['nama_petugas'] ?>
+                </td>
+                <td>
+                    <?= $row['nis'] ?>
+                </td>
+                <td>
+                    <?= $row['tgl_bayar'] ?>
+                </td>
+                <td>
+                    <?= $row['bulan_dibayar'] ?>
+                </td>
+                <td>
+                    <?= $row['tahun_dibayar'] ?>
+                </td>
+                <td>
+                    <?= $row['id_spp'] ?>
+                </td>
+                <td>
+                    <?= $row['jumlah_bayar'] ?>
+                </td>
+                <?php if (isset($_SESSION['leveluser'])) : ?>
                     <?php if ($_SESSION['leveluser'] == 'admin') : ?>
-                    <td style="display: flex; justify-content: center;">
-                    <a class="anchor" href="detail.php?nis=<?= $row['nis']; ?>">Detail </a>
-                        <span>|</span>
-                    <a class="anchor" href="delete.php?id_pembayaran=<?php echo $row['id_pembayaran']; ?>" onclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                        <td>
+                            <a class="anchor" href="detail.php?nis=<?= $row['nis']; ?>">Detail </a>
+                            <span>|</span>
+                            <a class="anchor" href="delete.php?id_pembayaran=<?php echo $row['id_pembayaran']; ?>" onclick="return confirm ('apakah anda yakin?')">Hapus</a>
+                        <td>
+                        <?php endif; ?>
                     <?php endif; ?>
-                <?php endif; ?>
+                        <td style="display: none"></td>
+            </tr>
 
-                </tr>
+        <?php endforeach; ?>
 
-            <?php
-            }
-            ?>
-
-        </tbody>
     </table>
 </div>
 
