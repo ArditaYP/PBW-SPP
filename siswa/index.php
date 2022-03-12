@@ -21,7 +21,7 @@ require_once '../templates/header.php';
             <tbody>
                 <?php
 
-                $query = "select * from siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas";
+                $query = "select * from siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas JOIN spp ON siswa.id_spp = spp.id_spp";
 
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
@@ -33,7 +33,7 @@ require_once '../templates/header.php';
                         <td><?php echo $row['nama_kelas'] ?></td>
                         <td><?php echo $row['alamat'] ?></td>
                         <td><?php echo $row['no_telp'] ?></td>
-                        <td><?php echo $row['id_spp'] ?></td>
+                        <td><?php echo $row['nominal'] ?></td>
                         <td style="display: flex; justify-content: center;">
                             >
                             <a href="edit.php?id=<?= $row['nisn'] ?>">Edit</a> |
